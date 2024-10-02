@@ -15,81 +15,87 @@
             </div>
 
             <div class="nav-group">
-
                 <div class="nav-whatsapp border">
                     <i class="fa-brands fa-square-whatsapp fa-3x" style="color: #63E6BE;"></i>
-                    <div class="add-icon"></div>
                     <p class="text"> +918424917655</p>
                 </div>
 
                 <div class="nav-phone-number border">
                     <i class="fa-solid fa-square-phone fa-3x" style="color: #74C0FC;"></i>
-                    <div class="add-icon1"></div>
                     <p class="text1"> +919769952037</p>
                 </div>
 
-                <div class="nav-mail border"></div>
+                <div class="nav-mail border">
                     <i class="fa-solid fa-envelope fa-3x" style="color: #B197FC;"></i>
-                    <div class="add-icon2"></div>
                     <p class="text2"> aniket17kamble@gmail.com</p>
                 </div>
 
                 <div class="nav-cart border">
-                    <i class="fa-regular fa-cart-shopping fa-2x" style="color: #FFD43B;"></i>
-                    cart
+                    <a href="cart.html"><i class="fa-regular fa-cart-shopping fa-2x" style="color: #FFD43B;"></i> Cart</a>
                 </div>
 
             </div>
         </div>
     </header>
-    <div class="hero-section">
 
-    </div>
-    <div class="about-us-section">
-
-    </div>
     <div class="shop-section">
-        
         <div class="box1 box">
             <div class="box-content">
                 <img src="laptop-1.png" alt="Image" class="box-image">
             </div>
             <div class="box-text border1">
-                price <p class="price">299</p>
+                Price: $<span class="price">299</span>
             </div>
-            <button class="bottom-left-text">Add to Cart</button>
+            <button class="add-to-cart" data-name="Laptop 1" data-price="299">Add to Cart</button>
         </div>
-
 
         <div class="box2 box">
             <div class="box-content">
                 <img src="laptop-2.png" alt="Image" class="box-image">
             </div>
             <div class="box-text">
-                price 399
+                Price: $<span class="price">399</span>
             </div>
-            <div class="bottom-left-text">
-                Add to cart
-            </div>
+            <button class="add-to-cart" data-name="Laptop 2" data-price="399">Add to Cart</button>
         </div>
-
 
         <div class="box3 box">
             <div class="box-content">
                 <img src="laptop-3.png" alt="Image" class="box-image">
             </div>
             <div class="box-text">
-                price 499
+                Price: $<span class="price">499</span>
             </div>
-            <div class="bottom-left-text">
-                Add to cart
-            </div>
+            <button class="add-to-cart" data-name="Laptop 3" data-price="499">Add to Cart</button>
         </div>
 
-
-        <div class="box4 box">box4</div>
-        
-
+        <div class="box4 box">
+            Box 4
+        </div>
     </div>
+
+    <script>
+        // Add item to cart and store it in localStorage
+        const buttons = document.querySelectorAll('.add-to-cart');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        buttons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const name = event.target.getAttribute('data-name');
+                const price = event.target.getAttribute('data-price');
+
+                // Check if the item already exists in the cart
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Item added to cart!');
+            });
+        });
+    </script>
 </body>
 </html>
