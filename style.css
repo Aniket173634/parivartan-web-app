@@ -93,6 +93,18 @@
     font-size: 0.9rem;
     font-weight: 700;
     margin-left: 12%;
+    display: flex;
+    align-items: center;
+    
+}
+.nav-cart a:hover{
+    color: white;
+}
+
+.nav-cart a{
+    color: white;
+    text-decoration: none;
+    margin-left: 5px;
 }
 /** hero section **/
 .hero-section {
@@ -439,4 +451,19 @@ textarea {
     .submit-button {
         font-size: 1.1rem;
     }
+}
+
+.back-button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }

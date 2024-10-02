@@ -7,15 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cart-header">
-        <h1>Your Cart</h1>
-    </header>
+    <div class="cart-header">
+
+        <header class="cart-header">
+            <h1>Your Cart</h1>
+        </header>
+        <!-- Back button to navigate to the home page -->
+    <button id="back-button" class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
 
     <div id="cart-items" class="cart-items-container"></div>
 
     <div class="cart-total">
         <h2>Total: $<span id="total-price">0</span></h2>
     </div>
+
+    
 
     <button id="checkout-button" class="checkout-button">Checkout</button>
 

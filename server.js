@@ -3,9 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const twilio = require('twilio');
 
-const accountSid = 'acc-sid'; // Twilio Account SID
-const authToken = 'acc-auth-token'; // Twilio Auth Token
+const {accountSid, authToken, messagingServiceSid} = require("./variables");
+
+// const accountSid = accountSid; // Twilio Account SID
+// const authToken = authToken; // Twilio Auth Token
 const client = new twilio(accountSid, authToken);
+// const messagingServiceSid = messagingServiceSid;
 
 const app = express();
 const port = 3000;
@@ -18,7 +21,7 @@ app.post('/send-sms', (req, res) => {
 
     client.messages.create({
         body: `Hello ${name}, your order has been placed successfully. Total amount: $${totalAmount}. Thank you for shopping with us!`,
-        messagingServiceSid: 'msg-sid', // Use your Messaging Service SID here
+        messagingServiceSid: messagingServiceSid, // Use your Messaging Service SID here
         to:phone
     })
     .then(message => res.status(200).json({ success: true, messageSid: message.sid }))
