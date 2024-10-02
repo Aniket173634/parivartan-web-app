@@ -231,3 +231,125 @@
 .price{
     display: inline-block;
 }
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+header.cart-header {
+    background-color: #63e6be;
+    padding: 20px;
+    text-align: center;
+}
+
+header.cart-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+}
+
+/* Cart Items Container */
+.cart-items-container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Cart Item Styles */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.cart-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Empty Cart Message */
+.empty-cart-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff6b6b;
+}
+
+/* Cart Total Section */
+.cart-total {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffe066;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 1.5rem;
+}
+
+.cart-total h2 {
+    margin: 0;
+    color: #333;
+}
+
+/* Checkout Button Styles */
+.checkout-button {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #74c0fc;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #4dabf7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cart-items-container {
+        padding: 15px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .cart-item p {
+        font-size: 0.9rem;
+    }
+
+    .cart-total h2 {
+        font-size: 1.2rem;
+    }
+
+    .checkout-button {
+        width: 100%;
+    }
+}
