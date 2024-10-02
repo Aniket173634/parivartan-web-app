@@ -353,3 +353,90 @@ header.cart-header h1 {
         width: 100%;
     }
 }
+
+/* Checkout Page Styles */
+.checkout-header {
+    background-color: #74C0FC;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.checkout-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #63E6BE;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.submit-button {
+    padding: 15px;
+    background-color: #63E6BE;
+    color: white;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #38d9a9;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    .checkout-container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .checkout-header {
+        font-size: 2rem;
+    }
+
+    .submit-button {
+        font-size: 1.1rem;
+    }
+}

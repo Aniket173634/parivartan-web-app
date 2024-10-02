@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cart-header">
+        <h1>Your Cart</h1>
+    </header>
+
+    <div id="cart-items" class="cart-items-container"></div>
+
+    <div class="cart-total">
+        <h2>Total: $<span id="total-price">0</span></h2>
+    </div>
+
+    <button id="checkout-button" class="checkout-button">Checkout</button>
+
+    <script>
+        const cartItemsDiv = document.getElementById('cart-items');
+        const totalPriceSpan = document.getElementById('total-price');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalPrice = 0;
+
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+        } else {
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Price: $${item.price}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Total: $${item.price * item.quantity}</p>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+
+                totalPrice += item.price * item.quantity;
+            });
+        }
+
+        totalPriceSpan.textContent = totalPrice;
+
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            window.location.href = 'checkout.html';
+        });
+    </script>
+</body>
+</html>

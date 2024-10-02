@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="checkout-header">
+        <h1>Checkout</h1>
+    </header>
+
+    <div class="checkout-container">
+        <form id="checkout-form" class="checkout-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone-no">Mobile Number</label>
+                <input type="tel" id="phone-no" name="phone-no" placeholder="Enter your mobile number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter your ZIP code" required>
+            </div>
+
+            <button type="submit" class="submit-button">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        const checkoutForm = document.getElementById('checkout-form');
+
+        // Calculate total price from cart in local storage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+        checkoutForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone-no').value;
+
+            const orderData = {
+                name: name,
+                phone: `+91${phone}`,
+                totalAmount: totalPrice
+            };
+
+            // Send SMS via server
+            fetch('http://localhost:3000/send-sms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Order placed successfully! A confirmation SMS has been sent to your phone.');
+                    
+                    // Clear the cart after successful order placement
+                    localStorage.removeItem('cart');
+                    
+                    // Redirect to the home page or any other page
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Failed to send SMS. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
