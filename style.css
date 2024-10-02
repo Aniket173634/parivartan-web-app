@@ -1,10 +1,18 @@
+/* Global Styles */
 * {
     margin: 0;
-    font-family: Arial;
-    border: border-box;
-  
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navbar Styles */
 .navbar {
     height: 100px;
     background-color: #021340;
@@ -17,7 +25,6 @@
     height: 80px;
     width: 550px;
 }
-
 
 .logo {
     background-image: url("parivartan_logo.png");
@@ -33,9 +40,6 @@
     border: 2px solid white;
 }
 
-.border {
-    border: 2px solid transparent;
-}
 .border1:hover {
     border: 2px solid black;
 }
@@ -46,105 +50,74 @@
     margin-left: 10%;
 }
 
-/** box1 **/
-.text {
+/* Text Styles */
+.text, .text1, .text2 {
     color: white;
     font-size: 0.9rem;
     font-weight: 700;
 }
-.nav-whatsapp {
+
+.nav-whatsapp, .nav-phone-number, .nav-mail {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-/** box2 **/
-.text1 {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-.nav-phone-number {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-/** box3 **/
-.text2 {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-.nav-mail {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-/** box4 **/
-
-.nav-cart i  {
+.nav-cart i {
     font-size: 30px;
     font-weight: 700;
 }
 
 .nav-cart {
+
     font-size: 0.9rem;
     font-weight: 700;
-    margin-left: 12%;
+    margin-left: 50%;
     display: flex;
     align-items: center;
-    
-}
-.nav-cart a:hover{
-    color: white;
 }
 
-.nav-cart a{
+.nav-cart a {
     color: white;
     text-decoration: none;
     margin-left: 5px;
 }
-/** hero section **/
+.nav-cart a:hover {
+    color: white;
+}
+
+/* Hero Section */
 .hero-section {
     background-image: url("Hero_image1.png");
     background-size: cover;
     height: 600px;
 }
 
-/** about us section **/
-
+/* About Us Section */
 .about-us-section {
     background-image: url("About_1.png");
     background-size: cover;
     height: 750px;
 }
 
-/** shop section **/
-
+/* Shop Section */
 .shop-section {
+    padding: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    background-image: url("shop-section-1.png");
+    /* background-image: url("shop-section-1.png"); */
+    /* background-image: url("shop-section-1.png"); */
     background-size: cover;
     height: 600px;
 }
 
-
-.box{
+.box {
     height: 400px;
     width: 23%;
     margin-top: 100px;
     background-color: white;
-}
-
-/** box1 **/
-
-.box {
-    width: 300px;
-    height: 400px;
-    background-color: #f0f0f0;
+    display: inline-block;
     position: relative; /* To position the bottom-left text inside */
     padding: 20px;
     border-radius: 8px;
@@ -152,17 +125,16 @@
     text-align: center; /* Center the text and image horizontally */
 }
 
-
 .box-image {
     max-width: 100%;
-    height: auto;
+    height: 200px;
     border-radius: 8px;
 }
 
 .box-text {
     margin-top: 40px;
     font-size: 3.5rem;
-    color:black;
+    color: black;
 }
 
 .bottom-left-text {
@@ -173,86 +145,11 @@
     color: black;
 }
 
-/** box2 **/
-.box {
-    width: 300px;
-    height: 400px;
-    background-color: #f0f0f0;
-    position: relative; /* To position the bottom-left text inside */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the text and image horizontally */
-}
-
-
-.box-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.box-text {
-    margin-top: 40px;
-    font-size: 3.5rem;
-    color:black;
-}
-
-.bottom-left-text {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    font-size: 1rem;
-    color: black;
-}
-
-/** box3 **/
-
-.box {
-    width: 300px;
-    height: 400px;
-    background-color: #f0f0f0;
-    position: relative; /* To position the bottom-left text inside */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the text and image horizontally */
-}
-
-
-.box-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.box-text {
-    margin-top: 40px;
-    font-size: 3.5rem;
-    color:black;
-}
-
-.bottom-left-text {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    font-size: 1rem;
-    color: black;
-}
-
-.price{
+.price {
     display: inline-block;
 }
 
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f4f4f4;
-}
-
+/* Header Cart Styles */
 header.cart-header {
     background-color: #63e6be;
     padding: 20px;
@@ -400,7 +297,7 @@ header.cart-header h1 {
     display: block;
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
@@ -410,7 +307,7 @@ header.cart-header h1 {
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus, 
+.form-group input:focus,
 .form-group textarea:focus {
     border-color: #63E6BE;
     outline: none;
@@ -453,6 +350,7 @@ textarea {
     }
 }
 
+/* Back Button */
 .back-button {
     display: block;
     width: 200px;
@@ -479,3 +377,13 @@ textarea {
 }
 
 .main-cart-container {}
+
+.bg-image-1{
+    /* background-image: url("shop-section-1.png"); */
+    background-color: #a7dffc;
+}
+
+.bg-image-2{
+    /* background-image: url("shop-section-1.png"); */
+    background-color: #5fc0f0;
+}
