@@ -44,35 +44,43 @@ body {
     border: 2px solid black;
 }
 
+
+/* Navbar Group Styles */
 .nav-group {
     display: flex;
-    align-items: center;
-    margin-left: 10%;
-}
-
-/* Text Styles */
-.text, .text1, .text2 {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 700;
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center; /* Vertically center the items */
+    gap: 20px; /* Add space between each element */
+    margin-left: auto; /* Push the group to the right */
+    padding-right: 300px; /* Add some padding to the right side */
 }
 
 .nav-whatsapp, .nav-phone-number, .nav-mail {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-}
-
-.nav-cart i {
-    font-size: 30px;
-    font-weight: 700;
+    gap: 10px; /* Add space between icon and text */
+    padding-right: 20px;
 }
 
 .nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between icon and text */
+    padding-right: 50px;
+}
 
+.nav-whatsapp p, .nav-phone-number p, .nav-mail p, .nav-cart a {
+    margin: 0;
     font-size: 0.9rem;
     font-weight: 700;
-    margin-left: 50%;
+    color: white;
+}
+
+.nav-whatsapp i, .nav-phone-number i, .nav-mail i, .nav-cart i {
+    font-size: 1.5rem; /* Adjust icon size */
+}
+
+.nav-cart {
     display: flex;
     align-items: center;
 }
@@ -81,10 +89,19 @@ body {
     color: white;
     text-decoration: none;
     margin-left: 5px;
+    font-size: 1rem;
+    font-weight: 600;
 }
+
 .nav-cart a:hover {
-    color: white;
+    color: #FFD43B; /* Add hover effect for cart link */
 }
+
+.nav-cart i {
+    font-size: 30px;
+    font-weight: 700;
+}
+
 
 /* Hero Section */
 .hero-section {
@@ -387,3 +404,6 @@ textarea {
     /* background-image: url("shop-section-1.png"); */
     background-color: #5fc0f0;
 }
+
+
+
