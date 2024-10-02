@@ -1,34 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
     <div class="cart-header">
-
         <header class="cart-header">
             <h1>Your Cart</h1>
         </header>
         <!-- Back button to navigate to the home page -->
-    <button id="back-button" class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+
     </div>
 
-    <div id="cart-items" class="cart-items-container"></div>
+    <div class="main-cart-container">
+        <div id="cart-items" class="cart-items-container"></div>
+        <div class="cart-total">
+            <h2>Total: $<span id="total-price">0</span></h2>
+        </div>
 
-    <div class="cart-total">
-        <h2>Total: $<span id="total-price">0</span></h2>
+        <div class="button-3">
+            <button id="back-button" class="back-button" onclick="window.location.href='index.html'">Back to
+                Home</button>
+            <button id="checkout-button" class="checkout-button">Checkout</button>
+        </div>
     </div>
-
-    
-
-    <button id="checkout-button" class="checkout-button">Checkout</button>
+    <!-- Error popup modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Your cart is empty. Please add items before proceeding to checkout.</p>
+        </div>
+    </div>
 
     <script>
         const cartItemsDiv = document.getElementById('cart-items');
         const totalPriceSpan = document.getElementById('total-price');
+        const modal = document.getElementById("errorModal");
+        const closeModal = document.getElementsByClassName("close")[0];
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         let totalPrice = 0;
 
@@ -52,9 +111,29 @@
 
         totalPriceSpan.textContent = totalPrice;
 
+        // When the user clicks the checkout button
         document.getElementById('checkout-button').addEventListener('click', () => {
-            window.location.href = 'checkout.html';
+            if (cart.length === 0) {
+                // Show the modal when the cart is empty
+                modal.style.display = "block";
+            } else {
+                // Proceed to checkout if cart is not empty
+                window.location.href = 'checkout.html';
+            }
         });
+
+        // When the user clicks on <span> (x), close the modal
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
+
 </html>
